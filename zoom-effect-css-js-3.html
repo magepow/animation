@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="imagetoolbar" content="no"/>
+    <title>Zoom Effect CSS - JS </title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var zoomWindow = document.querySelector(".zoomWindow");
+            if(zoomWindow){
+                var effectIn;
+                $( ".box-img" ).hover(
+                    function() {
+                       if(effectIn){
+                            effectIn.cancel();
+                        }
+                        zoomWindow.style.display = 'block';
+                        effectIn = zoomWindow.animate(
+                            [
+                                { transform: 'translate3d(-100%, 0, 0) scale(0)' },
+                                { transform: 'translate3d(0, 0, 0) scale(1)' },
+                                { transition: 'all 0.8s linear both' }
+                            ], 
+                            {    duration: 500,
+                                 iterations: 0.5
+                            });
+                    }, function() {
+                       if(effectIn){
+                            effectIn.cancel();
+                            effectIn.reverse();
+                            effectIn.onfinish = (e) => {
+                                    zoomWindow.style.display = 'none';
+                                };
+                        }
+                    }
+                );
+            }
+        });
+    </script>
+<style type="text/css">
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box-img{
+        position: relative;
+    }
+    .zoomWindow{
+        top:  0;
+        bottom:  0;
+        display: none;
+        position: absolute;
+    }
+</style>
+</head>
+<body>
+    <div id="page">
+        <div class="container">
+            <div class="box-image">
+                <img class="box-img"
+                        src="images/image.jpeg"
+                        data-zoom-image="images/image.jpeg"
+                        width="413" height="550"/>
+            </div>            
+            <div class="zoom-wrapper">
+                <div class="zoomWindow">
+                    <img class="zoom-img"
+                        src="images/image.jpeg"
+                        data-zoom-image="images/image.jpeg"
+                        width="413" height="550"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
