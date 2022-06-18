@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tiêu đề</title>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<style>
+button {
+    margin: 10px;
+}
+img {
+    position: relative;
+    left: 10px;
+}
+.col-6 {
+  width: 50%;
+  display: flex;
+  float: left;
+}
+</style>
+<script>
+$(function(){
+    $('.click button').click(function() {
+        $('.click img').animate({
+            width: 'toggle',
+            height: 'toggle'
+        }, {
+             duration: 5000,
+             specialEasing: {
+                 width: 'linear',
+                 height: 'linear'
+             },
+             complete: function() {
+                 $(this).after("<div>Animation Complete</div>");
+             }
+        });
+    });
+
+    $('.hover button').hover(function() {
+        $('.hover img').animate({
+            width: 'toggle',
+            height: 'toggle'
+        }, {
+             duration: 5000,
+             specialEasing: {
+                 width: 'linear',
+                 height: 'linear'
+             },
+             complete: function() {
+                 $(this).after("<div>Animation Complete</div>");
+             }
+        });
+    });
+
+});
+</script>
+</head>
+
+<body>
+<div class="click col-6">
+  <p><button>Click here</button></p>
+  <img class=""src="images/image.jpeg" alt="" width="420" height="600">
+</div>
+
+<div class="hover col-6">
+  <p><button>Hover here</button></p>
+  <img src="images/image.jpeg" alt="" width="420" height="600">
+</div>
+</body>
+</html>
