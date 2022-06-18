@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="imagetoolbar" content="no"/>
+    <title>Zoom Effect CSS</title>
+<style type="text/css">
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @-webkit-keyframes scale-in-left {
+        0% {
+            -webkit-transform: translate3d(-50%, 0, -100px)  scale(0);
+            transform: translate3d(-50%, 0, -100px)  scale(0);
+            -webkit-transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1);
+            -webkit-transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
+            opacity: 1;
+        }
+    }
+    @keyframes scale-in-left {
+        0% {
+            -webkit-transform: translate3d(-50%, 0, -100px)  scale(0);
+            transform: translate3d(-50%, 0, -100px)  scale(0);
+            -webkit-transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
+            opacity: 0;
+        }
+        100% {
+            -webkit-transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1);
+            -webkit-transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
+            opacity: 1;
+        }
+    }
+
+    @-webkit-keyframes scale-out-right {
+        0% {
+            -webkit-transform: translate3d(100%, 0, -100px)  scale(1);
+            transform: translate3d(100%, 0, -100px)  scale(1);
+            -webkit-transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(50%, 0, 0) scale(0);
+            transform: translate3d(50%, 0, 0) scale(0);
+            -webkit-transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
+            opacity: 0;
+        }
+    }
+    @keyframes scale-out-right {
+        0% {
+            -webkit-transform: translate3d(100%, 0, -100px)  scale(1);
+            transform: translate3d(100%, 0, -100px)  scale(1);
+            -webkit-transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: translate3d(50%, 0, 0) scale(0);
+            transform: translate3d(50%, 0, 0) scale(0);
+            -webkit-transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
+            opacity: 0;
+        }
+    }
+
+    .zoomWindow{
+        position: relative;
+    }
+
+    .zoomWindow:before{
+        content: "";
+        position: absolute;
+        top:  0;
+        bottom:  0;
+        /*left: 0;*/
+        width: 100%;
+        height:  100%;
+        border: 1px solid #666;
+        background-color:  #f5f5f5;
+        -webkit-animation: scale-out-right 1s  both;
+        animation: scale-out-right 1s both;
+        background-image: url(images/image.jpeg);
+        background-position: center;
+        opacity: 0;
+    }
+
+    .zoomWindow:hover:before{
+        left: 100%;
+        -webkit-animation: scale-in-left 1s both;
+        animation: scale-in-left 1s  both;
+        display: block;
+    }
+
+</style>
+</head>
+<body>
+    <div id="page">
+        <div class="container">
+            <div class="zoom-wrapper">
+                <div style="margin-left: 30px;float:left; max-width:795px;">
+                    <div class="zoom-wrapper">
+                        <div class="zoomWindow">
+                            <img class="zoom-img" id="zoom_01"
+                                 src="images/image.jpeg"
+                                 data-zoom-image="images/image.jpeg"
+                                 width="413" height="550"/>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
