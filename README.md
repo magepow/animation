@@ -5,7 +5,10 @@
 * [Animate](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate)
 * [Jquery animate](https://api.jquery.com/animate/)
 * [Jquery animate VN](https://hocwebchuan.com/reference/jquery/jquery_animate.php)
+* [Animate velocity](https://github.com/julianshapiro/velocity)
+* [Animate gsap](https://greensock.com/jquerygsapjs/)
 * [Css animate](https://animista.net/play/basic/shadow-drop)
+
 
 ```
 // Web Animation API Keyframes options
