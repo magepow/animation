@@ -3,6 +3,7 @@
 
 * [Animation](https://developer.mozilla.org/en-US/docs/Web/API/Animation/Animation)
 * [Animate](https://developer.mozilla.org/en-US/docs/Web/API/Element/animate)
+* [Animate interface](https://drafts.csswg.org/web-animations-1/#the-animation-interface)
 * [Jquery animate](https://api.jquery.com/animate/)
 * [Jquery animate VN](https://hocwebchuan.com/reference/jquery/jquery_animate.php)
 * [Animate velocity](https://github.com/julianshapiro/velocity)
