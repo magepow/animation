@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="imagetoolbar" content="no"/>
+    <title>Zoom Effect CSS - JS </title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var zoomWindow = $(".zoomWindow");
+            var boxImage = $(".box-image");
+            var offsetImage  = boxImage.offset();
+            var offsetWindow = zoomWindow.offset();
+            if(zoomWindow){
+                $( ".box-img" ).hover(
+                    function() {
+                        zoomWindow.stop().show().animate({
+                                opacity: 1,
+                                left: offsetWindow.left + boxImage.width()/2,
+                                top: offsetWindow.top - boxImage.height()/2,
+                                width: boxImage.width(),
+                                height: boxImage.height(),
+                            }, 800, function() {
+                            // Animation complete.
+                            });
+                    }, function() {
+                        zoomWindow.stop().animate({
+                                opacity: 1,
+                                left: offsetWindow.left,
+                                top: offsetWindow.top,
+                                width: 0,
+                                height: 0,
+                            }, 800, function() {
+                            // Animation complete.
+                            });
+                    }
+                );
+            }
+        });
+    </script>
+<style type="text/css">
+    img {
+        max-width: 100%;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box-img{
+        position: relative;
+    }
+    .zoomWindow{
+        width: 0;
+        height: 0;
+        opacity: 0;
+        left: 50%;
+        position: absolute;
+        display: block;
+    }
+</style>
+</head>
+<body>
+    <div id="page">
+        <div class="container">
+            <div class="box-image">
+                <img class="box-img"
+                        src="images/image.jpeg"
+                        data-zoom-image="images/image.jpeg"
+                        width="413" height="550"/>
+            </div>            
+            <div style="margin-left: 30px;float:left; max-width:795px;">           
+                <div class="zoom-wrapper">
+                    <div class="zoomWindow">
+                        <img class="zoom-img"
+                            src="images/image.jpeg"
+                            data-zoom-image="images/image.jpeg"
+                            width="413" height="550"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
