@@ -58,3 +58,15 @@ function downHeGoes(event) {
     
 }
 ```
+
+```
+ zoomWindow.stop().show().animate({
+          opacity: 1,
+          left: "+=5%",
+          top: "-=5%",
+          width:444,
+          height:641,
+      }, 500, function() {
+          // Animation complete.
+      });
+```
